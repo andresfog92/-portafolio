@@ -1,0 +1,133 @@
+.app {
+  --fondo: #f5f3ff;
+  --texto: #1f1b2e;
+  --tarjeta: #ffffff;
+  --acento: #6d28d9;
+  --acento2: #ec4899;
+  min-height: 100vh;
+  background: var(--fondo);
+  color: var(--texto);
+  transition: background 0.3s, color 0.3s;
+}
+
+.app.oscuro {
+  --fondo: #12101c;
+  --texto: #ece9f7;
+  --tarjeta: #1d1a2e;
+  --acento: #a78bfa;
+  --acento2: #f472b6;
+}
+
+.contenedor {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.presentacion {
+  padding: 2.5rem 1.5rem;
+  border-radius: 20px;
+  color: white;
+  background: linear-gradient(135deg, #6d28d9, #ec4899);
+  animation: aparecer 0.6s ease;
+}
+
+.presentacion h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(2rem, 6vw, 3rem);
+}
+
+.presentacion p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+h2 {
+  margin-top: 2.5rem;
+  padding-left: 0.6rem;
+  color: var(--acento);
+  border-left: 4px solid var(--acento2);
+}
+
+a {
+  color: var(--acento);
+  font-weight: 600;
+}
+
+.tecnologias {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.tecnologias li {
+  background: var(--acento);
+  color: white;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  transition: transform 0.2s;
+}
+
+.tecnologias li:hover {
+  transform: scale(1.12) rotate(-2deg);
+  background: var(--acento2);
+}
+
+.proyectos {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+.tarjeta {
+  background: var(--tarjeta);
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  border-top: 4px solid var(--acento2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.tarjeta:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(109, 40, 217, 0.3);
+}
+
+.boton-tema {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  border: none;
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  background: var(--tarjeta);
+  color: var(--texto);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.boton-tema:hover {
+  background: var(--acento);
+  color: white;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 700px) {
+  .proyectos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
